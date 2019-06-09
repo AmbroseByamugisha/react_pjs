@@ -332,12 +332,101 @@
 // console.log(doubled);
 
 //01
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) => 
-<li>{number}</li>
-);
+// const numbers = [1, 2, 3, 4, 5];
+// const listItems = numbers.map((number) => 
+// <li>{number}</li>
+// );
 
-ReactDOM.render(
-    <ul>{listItems}</ul>,
-    document.getElementById('root')
-);
+// ReactDOM.render(
+//     <ul>{listItems}</ul>,
+//     document.getElementById('root')
+// );
+
+// FORMS 
+//01
+// class NameForm extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {value: ''};
+
+//         this.handleChange = this.handleChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
+
+//     handleChange(event) {
+//         this.setState({value: event.target.value});
+//     }
+
+//     handleSubmit(event) {
+//         alert('A name was submitted: ' + this.state.value);
+//         event.preventDefault();
+//     }
+
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>
+//                     Name:
+//                     <input type="text" value={this.state.value} onChange={this.handleChange} />
+//                 </label>
+//                 <input type="submit" value="Submit" />
+//             </form>
+//         );
+//     }
+// }
+
+//01
+// class Calculator extends React.component {
+//     constructor(props) {
+//         super(props);
+//         this.handleChange = this.handleChange.bind(this);
+//         this.state = {temperature: ''};
+//     }
+
+//     handleChange(e) {
+//         this.setState({temperature: e.target.value});
+//     }
+
+//     render() {
+//         const temperature = this.state.temperature;
+//         return (
+//             <fieldset>
+//                 <legend>Enter temperature in Celsius:</legend>
+//                 <input 
+//                     value={temperature}
+//                     onChange={this.handleChange} />
+
+//                 <BoilingVerdict
+//                     celsius={parseFloat(temperature)} />
+
+//             </fieldset>
+//         );
+//     }
+// }
+
+//COMPOSITION AND INHERITANCE
+//01
+function SplitPane(props) {
+    return (
+        <div className="SplitPane">
+            <div className="SplitPane-left">
+                {props.left}
+            </div>
+            <div className="SplitPane-right">
+                {props.right}
+            </div>
+        </div>
+    );
+}
+
+function App() {
+    return (
+        <SplitPane
+            left={
+                <Contacts />
+            }
+            right={
+                <Chat />
+            } />
+    );
+}
