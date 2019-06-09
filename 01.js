@@ -168,38 +168,176 @@
 // }
 
 //03
-class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {date: new Date()};
-    }
+// class Clock extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {date: new Date()};
+//     }
 
-    componentDidMount() {
-        this.timerID = setInterval(() => this.tick(), 1000);
-    }
+//     componentDidMount() {
+//         this.timerID = setInterval(() => this.tick(), 1000);
+//     }
 
     
-    componentWillMount() {
-        clearInterval(this.timerID);
-    }
+//     componentWillMount() {
+//         clearInterval(this.timerID);
+//     }
 
-    tick() {
-        this.setState({
-            date: new Date()
-        });
-    }
+//     tick() {
+//         this.setState({
+//             date: new Date()
+//         });
+//     }
 
-    render() {
-        return (
-            <div>
-                <h1>Hello, world!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-            </div>
-        );
-    }
-}
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Hello, world!</h1>
+//                 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+//             </div>
+//         );
+//     }
+// }
+
+// ReactDOM.render(
+//     <Clock />,
+//     document.getElementById('root')
+// );
+
+//02
+// <button onClick={activateLasers}>
+//     activate Lasers
+// </button>
+
+//01
+// class Toggle extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {isToggleOn: true};
+
+//         this.handleClick = this.handleClick.bind(this);
+//     }
+
+//     handleClick() {
+//         this.setState(state => ({
+//             isToggleOn: !state.isToggleOn
+//         }));
+//     }
+
+//     render(){
+//         return (
+//             <button onClick={this.handleClick}>
+//                 {this.state.isToggleOn ? 'ON' : 'OFF'}
+//             </button>
+//         );
+//     }
+// }
+
+// ReactDOM.render(
+//     <Toggle />,
+//     document.getElementById('root')
+// )
+
+//ternary operators
+// const a = 30;
+// const b = 20;
+// var c;
+
+// c = (a < b) ? a : b;
+// console.log(c);
+
+//01
+// function UserGreeting(props) {
+//     return <h1>Welcome back!</h1>;
+// }
+
+// function GuestGreeting(props) {
+//     return <h1>Please sign up.</h1>
+// }
+
+// function Greeting(props) {
+//     const isLoggedIn = props.isLoggedIn;
+//     if (isLoggedIn) {
+//         return <UserGreeting />;
+//     }
+//     return <GuestGreeting />;
+// }
+
+// ReactDOM.render(
+//     <Greeting isLoggedIn={false} />,
+//     document.getElementById('root')
+// );
+
+//02
+// function LoginButton(props) {
+//     return (
+//         <button onClick={props.onClick}>
+//             Login
+//         </button>
+//     );
+// }
+
+// function LogoutButton(props) {
+//     return (
+//         <button onClick={props.onClick}>
+//             Logout
+//         </button>
+//     );
+// }
+
+// class LoginControl extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.handleLoginClick = this.handleLoginClick.bind(this);
+//         this.handleLogoutClick = this.handleLogoutClick.bind(this);
+//         this.state = {isLoggedIn: false};
+//     }
+
+//     handleLoginClick() {
+//         this.setState({isLoggedIn: true});
+//     }
+
+//     handleLogoutClick() {
+//         this.setState({isLoggedIn: false});
+//     }
+
+//     render() {
+//         const isLoggedIn = this.state.isLoggedIn;
+//         let button;
+
+//         if (isLoggedIn) {
+//             button = <LogoutButton onClick={this.handleLogoutClick} />;
+//         } else {
+//             button = <LoginButton onClick={this.handleLoginClick} />;
+//         }
+
+//         return (
+//             <div>
+//                 <Greeting isLoggedIn={isLoggedIn} />
+//                 {button}
+//             </div>
+//         );
+//     }
+// }
+
+// ReactDOM.render(
+//     <LoginControl />,
+//     document.getElementById('root')
+// );
+
+//LISTS AND KEYS
+//01
+// const numbers = [1, 2, 3, 4, 5]
+// const doubled = numbers.map((number) => number * 2);
+// console.log(doubled);
+
+//01
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) => 
+<li>{number}</li>
+);
 
 ReactDOM.render(
-    <Clock />,
+    <ul>{listItems}</ul>,
     document.getElementById('root')
 );
